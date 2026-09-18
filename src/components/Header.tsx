@@ -104,7 +104,7 @@ export default function Header() {
           {/* Guaranteed display on lg (1024px–1279px) and hides on large desktops (xl ≥ 1280px) */}
           <div className="flex xl:hidden items-center ml-2 xs:ml-3 sm:ml-4 lg:ml-6 shrink-0 z-20">
            <Image
-  src="/images/badge.png"
+  src="/images/bad.png"
   alt="Anniversary Badge"
   width={160}
   height={160}
