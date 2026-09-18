@@ -81,21 +81,20 @@ export default function Header() {
                 style={{ clipPath: diagonalCut }}
               >
                 <Link href="/" className="inline-flex items-center">
-                <Image
-  src="/images/logo.png"
-  alt="Company Logo"
-  width={500}
-  height={160}
-  priority
-  className="object-contain max-w-none transition-transform duration-200 hover:scale-105
-    w-[150px] h-[64px]
-    xs:w-[240px] xs:h-[78px]
-    sm:w-[280px] sm:h-[86px]
-    md:w-[320px] md:h-[96px]
-    lg:w-[380px] lg:h-[105px]
-    xl:w-[420px] xl:h-[110px]
-    2xl:w-[460px] 2xl:h-[116px]"
-/>
+                  <Image
+                    src="/images/logo.png"
+                    alt="Company Logo"
+                    width={380}
+                    height={100}
+                    priority
+                    className="object-contain transition-transform duration-200 hover:scale-105
+                      w-[100px] h-[58px]
+                      xs:w-[200px] xs:h-[80px]
+                      sm:w-[210px] sm:h-[72px]
+                      md:w-[240px] md:h-[75px]
+                      lg:w-[280px] lg:h-[85px]
+                      2xl:w-[340px] 2xl:h-[95px]"
+                  />
                 </Link>
               </div>
             </div>
