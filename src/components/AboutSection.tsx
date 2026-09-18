@@ -25,7 +25,7 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-[#fafaf9] py-16 sm:py-24 lg:py-32"
+      className="relative w-full overflow-hidden bg-[#fafaf9] py-13 sm:py-18 lg:py-20"
     >
       {/* Editorial Structural Hairlines */}
       <div className="pointer-events-none absolute inset-0 flex justify-between max-w-7xl mx-auto px-6 opacity-30">

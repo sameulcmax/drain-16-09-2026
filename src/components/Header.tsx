@@ -11,38 +11,31 @@ interface NavItem {
   hasDropdown?: boolean;
 }
 
-// All services route to the existing /services page
 const serviceGroups = [
   {
     title: "Residential",
     items: [
-      { name: "Drain Cleaning", desc: "Sinks, tubs, showers & lines", href: "/services" },
-      { name: "Drain Repairs", desc: "Pipe patches & line restores", href: "/services" },
-      { name: "Sewer Camera Inspection", desc: "HD diagnostic video scans", href: "/services" },
+      { name: "Drain lines", desc: "Sinks, tubs, showers & lines", href: "/services" },
+      { name: "More sewer", desc: "Main line and branch line service", href: "/services" },
+      { name: "Toilet repairs", desc: "Stop leaks and restore flush flow", href: "/services" },
     ],
   },
   {
-    title: "Commercial & Specialized",
+    title: "Specialized",
     items: [
-      { name: "Commercial Jetting", desc: "Heavy-duty grease removal", href: "/services" },
-      { name: "Trenchless Repairs", desc: "Sewer lining without digging", href: "/services" },
-      { name: "24/7 Power Snake", desc: "High-torque emergency service", href: "/services" },
+      { name: "Clog, clog cleaning", desc: "Fast blockage removal", href: "/services" },
+      { name: "Main line video sewer inspection", desc: "Camera checks and diagnosis", href: "/services" },
+      { name: "Faucet and leak repairs", desc: "Fixture and valve fixes", href: "/services" },
     ],
   },
 ];
 
-// Only About Us and Services keep dedicated routes; all other pages route to "/"
 const navLinks: NavItem[] = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services", hasDropdown: true },
-  { name: "Renovation", href: "/" },
-  { name: "Emergency", href: "/" },
-  { name: "Reviews", href: "/" },
   { name: "Project Gallery", href: "/" },
-  { name: "FAQ's", href: "/" },
-  { name: "Blog", href: "/" },
-  { name: "Contact Us", href: "/" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export default function Header() {
@@ -61,60 +54,52 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
-  const tabShape = "polygon(0 0, 100% 0, 100% 68%, 0 100%)";
+  const diagonalCut = "polygon(0 0, 100% 0, calc(100% - 24px) 100%, 0 100%)";
 
   return (
-    <header className="relative z-40 w-full bg-[#c02f2d] shadow-lg">
-      <div className="w-full flex h-[58px] items-center justify-between pr-4 sm:pr-6 lg:pr-8">
+    <header className="relative z-[100] w-full bg-[#c02f2d] shadow-md">
+      <div className="mx-auto w-full max-w-[1920px] flex h-[70px] xs:h-[80px] sm:h-[90px] md:h-[100px] lg:h-[110px] 2xl:h-[118px] items-center justify-between pr-2 xs:pr-3 sm:pr-6 lg:pr-8">
         
-        {/* ================= LOGO TAB ================= */}
-        <div className="relative self-start top-0 z-40 shrink-0 select-none filter drop-shadow-[0_12px_18px_rgba(0,0,0,0.38)]">
+        {/* ================= 4-SIDED BLUE & RED BORDERED LOGO TAB ================= */}
+        {/* Outer Layer: Theme Blue Border (#014485) on all 4 sides */}
+        <div
+          className="relative z-20 h-full p-[3px] sm:p-[4px] bg-[#014485] shrink-0 select-none shadow-md"
+          style={{ clipPath: diagonalCut }}
+        >
+          {/* Middle Layer: Theme Red Border (#c02f2d) on all 4 sides */}
           <div
-            className="bg-[#014485] p-[3px] sm:p-[4px]"
-            style={{ clipPath: tabShape }}
+            className="h-full w-full p-[2.5px] sm:p-[3px] bg-[#c02f2d]"
+            style={{ clipPath: diagonalCut }}
           >
+            {/* Inner Layer: White Logo Canvas */}
             <div
-              className="bg-[#c02f2d] p-[2.5px] sm:p-[3px]"
-              style={{ clipPath: tabShape }}
+              className="h-full flex items-center bg-white 
+                pl-2 xs:pl-3.5 sm:pl-6 lg:pl-8 
+                pr-7 xs:pr-8 sm:pr-10 md:pr-14 lg:pr-16"
+              style={{ clipPath: diagonalCut }}
             >
-              <div
-                className="flex items-center justify-center transition-all duration-300
-                  w-[190px] h-[95px] 
-                  sm:w-[230px] sm:h-[115px] 
-                  md:w-[270px] md:h-[130px] 
-                  lg:w-[320px] lg:h-[145px] 
-                  2xl:w-[350px] 2xl:h-[155px]
-                  pl-3 pr-5 sm:pl-5 sm:pr-8 lg:pl-6 lg:pr-10
-                  pt-1 sm:pt-2
-                  pb-6 sm:pb-8 lg:pb-10"
-                style={{
-                  clipPath: tabShape,
-                  background:
-                    "linear-gradient(105deg, #014485 0%, #014485 20%, #ffffff 20.1%, #ffffff 80%, #c02f2d 80.1%, #c02f2d 100%)",
-                }}
-              >
-                <Link href="/" className="inline-block relative z-10">
-                  <Image
-                    src="/images/logo.png"
-                    alt="Logo"
-                    width={320}
-                    height={120}
-                    priority
-                    className="object-contain transition-transform duration-200 hover:scale-105 drop-shadow-md
-                      w-[135px] max-h-[55px]
-                      sm:w-[175px] sm:max-h-[70px]
-                      md:w-[200px] md:max-h-[80px]
-                      lg:w-[245px] lg:max-h-[95px]
-                      2xl:w-[270px] 2xl:max-h-[105px]"
-                  />
-                </Link>
-              </div>
+              <Link href="/" className="inline-flex items-center">
+                <Image
+                  src="/images/logo.png"
+                  alt="Company Logo"
+                  width={380}
+                  height={100}
+                  priority
+                  className="object-contain transition-transform duration-200 hover:scale-105
+                    w-[100px] h-[58px]
+                    xs:w-[200px] xs:h-[80px]
+                    sm:w-[210px] sm:h-[72px]
+                    md:w-[260px] md:h-[75px]
+                    lg:w-[310px] lg:h-[88px]
+                    2xl:w-[340px] 2xl:h-[95px]"
+                />
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* ================= DESKTOP NAVIGATION LINKS ================= */}
-        <nav className="hidden xl:flex flex-1 items-center justify-around ml-4 2xl:ml-8">
+        {/* ================= DESKTOP NAVIGATION LINKS (CENTERED IN RED AREA) ================= */}
+        <nav className="hidden xl:flex flex-1 items-center justify-center gap-6 2xl:gap-10 px-6 min-w-0">
           {navLinks.map((item) => {
             const isActive =
               item.href === "/"
@@ -125,16 +110,16 @@ export default function Header() {
 
             if (item.hasDropdown) {
               return (
-                <div key={item.name} className="relative group py-5">
+                <div key={item.name} className="relative group py-6 shrink-0 group-hover:z-[110]">
                   <Link
                     href={item.href}
-                    className={`flex items-center text-[13px] 2xl:text-[14px] font-semibold uppercase tracking-wider text-white transition-all hover:text-white/80 ${
+                    className={`flex items-center text-[12.5px] 2xl:text-[14px] font-semibold uppercase tracking-wider text-white whitespace-nowrap transition-all hover:text-white/80 ${
                       isActive ? "text-white" : "text-white/95"
                     }`}
                   >
                     <span>{item.name}</span>
                     <svg
-                      className="ml-1.5 h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180 fill-current"
+                      className="ml-1 h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180 fill-current"
                       viewBox="0 0 20 20"
                     >
                       <path
@@ -145,13 +130,13 @@ export default function Header() {
                     </svg>
 
                     {isActive && (
-                      <span className="absolute bottom-3 left-0 h-[2.5px] w-full rounded-full bg-white shadow-sm" />
+                      <span className="absolute bottom-4 left-0 h-[2px] w-full rounded-full bg-white shadow-xs" />
                     )}
                   </Link>
 
                   {/* Dropdown Menu */}
-                  <div className="absolute left-1/2 -translate-x-1/2 top-[52px] hidden group-hover:block transition-all duration-200 pt-2 z-50">
-                    <div className="w-[520px] rounded-2xl bg-[#a82422] border-t-2 border-[#014485] p-5 shadow-[0_16px_36px_rgba(0,0,0,0.45)]">
+                  <div className="absolute left-1/2 -translate-x-1/2 top-[76px] hidden group-hover:block transition-all duration-200 pt-2 z-[120]">
+                    <div className="w-[500px] rounded-2xl bg-[#a82422] border-t-2 border-white/40 p-5 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)]">
                       <div className="grid grid-cols-2 gap-4">
                         {serviceGroups.map((grp) => (
                           <div key={grp.title} className="space-y-2">
@@ -167,7 +152,7 @@ export default function Header() {
                                 <Link
                                   key={svc.name}
                                   href={svc.href}
-                                  className="group/item block rounded-lg bg-white/10 p-2 transition-all duration-150 hover:bg-white hover:text-slate-900 shadow-xs"
+                                  className="group/item block rounded-lg bg-white/10 p-2 transition-all duration-150 hover:bg-white hover:text-slate-900"
                                 >
                                   <div className="flex items-center justify-between">
                                     <span className="text-xs font-bold uppercase tracking-wide text-white group-hover/item:text-[#c02f2d] transition-colors">
@@ -204,10 +189,10 @@ export default function Header() {
 
             if (isBlog) {
               return (
-                <div key={item.name} className="relative py-4">
+                <div key={item.name} className="relative py-4 shrink-0">
                   <Link
                     href={item.href}
-                    className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full border border-white/40 bg-white/10 hover:bg-white hover:text-[#c02f2d] transition-all duration-200 text-[12.5px] 2xl:text-[13.5px] font-bold uppercase tracking-wider text-white"
+                    className="inline-flex items-center space-x-1 px-3 py-1 rounded-full border border-white/40 bg-white/10 hover:bg-white hover:text-[#c02f2d] transition-all duration-200 text-[11.5px] 2xl:text-[13px] font-bold uppercase tracking-wider text-white whitespace-nowrap"
                   >
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
@@ -220,16 +205,16 @@ export default function Header() {
             }
 
             return (
-              <div key={item.name} className="relative py-5">
+              <div key={item.name} className="relative py-6 shrink-0">
                 <Link
                   href={item.href}
-                  className={`text-[13px] 2xl:text-[14px] font-semibold uppercase tracking-wider transition-all hover:text-white/80 ${
+                  className={`text-[12.5px] 2xl:text-[14px] font-semibold uppercase tracking-wider whitespace-nowrap transition-all hover:text-white/80 ${
                     isActive ? "text-white" : "text-white/95"
                   }`}
                 >
                   {item.name}
                   {isActive && (
-                    <span className="absolute bottom-3 left-0 h-[2.5px] w-full rounded-full bg-white shadow-sm" />
+                    <span className="absolute bottom-4 left-0 h-[2px] w-full rounded-full bg-white shadow-xs" />
                   )}
                 </Link>
               </div>
@@ -237,15 +222,15 @@ export default function Header() {
           })}
         </nav>
 
-        {/* ================= MOBILE CONTROLS ================= */}
-        <div className="flex items-center space-x-3 sm:space-x-4 xl:hidden">
+        {/* ================= HEADER CONTROLS (Tablets & Mobile) ================= */}
+        <div className="flex items-center space-x-1.5 xs:space-x-2 sm:space-x-3.5 xl:hidden z-20 shrink-0">
           <a
             href="tel:2018819622"
-            className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 text-white hover:bg-white/25 transition"
+            className="flex items-center justify-center w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white/15 text-white hover:bg-white/25 transition active:scale-95"
             aria-label="Call Us"
           >
             <svg
-              className="h-5 w-5 fill-none stroke-current stroke-2"
+              className="h-4 w-4 xs:h-5 xs:w-5 fill-none stroke-current stroke-2"
               viewBox="0 0 24 24"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -256,11 +241,11 @@ export default function Header() {
 
           <Link
             href="/"
-            className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 text-white hover:bg-white/25 transition"
+            className="flex items-center justify-center w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white/15 text-white hover:bg-white/25 transition active:scale-95"
             aria-label="Home"
           >
             <svg
-              className="h-5 w-5 fill-none stroke-current stroke-2"
+              className="h-4 w-4 xs:h-5 xs:w-5 fill-none stroke-current stroke-2"
               viewBox="0 0 24 24"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -272,10 +257,10 @@ export default function Header() {
           <button
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open Navigation"
-            className="flex items-center justify-center w-10 h-10 text-white focus:outline-none"
+            className="flex items-center justify-center w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 text-white focus:outline-none hover:bg-white/10 rounded-full transition"
           >
             <svg
-              className="h-7 w-7 stroke-current stroke-2"
+              className="h-6 w-6 sm:h-7 sm:w-7 stroke-current stroke-2"
               viewBox="0 0 24 24"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -291,23 +276,23 @@ export default function Header() {
       {/* ================= BLUR BACKDROP OVERLAY ================= */}
       <div
         onClick={() => setMobileMenuOpen(false)}
-        className={`fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity duration-300 xl:hidden ${
+        className={`fixed inset-0 z-[130] bg-black/60 backdrop-blur-sm transition-opacity duration-300 xl:hidden ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       />
 
-      {/* ================= MOBILE SLIDE DRAWER ================= */}
+      {/* ================= MOBILE & TABLET SLIDE DRAWER ================= */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-[70%] max-w-sm bg-[#c02f2d] shadow-2xl transition-transform duration-300 ease-out flex flex-col xl:hidden ${
+        className={`fixed top-0 right-0 z-[140] h-full w-[85%] xs:w-[75%] sm:w-[55%] md:w-[45%] max-w-sm bg-[#c02f2d] shadow-2xl transition-transform duration-300 ease-out flex flex-col xl:hidden ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between px-6 h-[60px] border-b border-red-800/60 shrink-0">
+        <div className="flex items-center justify-between px-5 sm:px-6 h-[65px] border-b border-red-800/60 shrink-0">
           <span className="text-white font-bold tracking-wider text-base uppercase">Menu</span>
           <button
             onClick={() => setMobileMenuOpen(false)}
             aria-label="Close Menu"
-            className="text-white p-2 hover:bg-white/10 rounded-full transition"
+            className="text-white p-1.5 hover:bg-white/10 rounded-full transition"
           >
             <svg
               className="w-6 h-6 stroke-current stroke-2"
@@ -321,8 +306,8 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto px-6 py-4">
-          <ul className="flex flex-col space-y-3.5">
+        <div className="flex-1 overflow-y-auto px-5 sm:px-6 py-4">
+          <ul className="flex flex-col space-y-3">
             {navLinks.map((item) => {
               const isActive =
                 item.href === "/"
@@ -401,7 +386,7 @@ export default function Header() {
           </ul>
         </div>
 
-        <div className="p-5 border-t border-red-800/60 shrink-0 bg-[#a62523]">
+        <div className="p-4 sm:p-5 border-t border-red-800/60 shrink-0 bg-[#a62523]">
           <a
             href="tel:2018819622"
             className="flex items-center justify-center space-x-2 w-full py-2.5 bg-white text-[#c02f2d] font-bold rounded shadow hover:bg-gray-100 transition text-sm"

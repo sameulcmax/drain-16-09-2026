@@ -15,17 +15,17 @@ const companyLinks = [
   { name: "Blog", href: "/blog" },
   { name: "About Us", href: "/about-us" },
   { name: "Our Projects", href: "/project-gallery" },
-  { name: "Services", href: "/plumbing-services" },
-  { name: "Contact", href: "/contact-us" },
+  { name: "Services", href: "/services" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const serviceLinks = [
-  { name: "Residential Drain Cleaning", href: "/services/residential-drain-cleaning" },
-  { name: "Residential Drain Repairs", href: "/services/residential-drain-repairs" },
-  { name: "Commercial Drain Cleaning", href: "/services/commercial-drain-cleaning" },
-  { name: "Commercial Drain Repairs", href: "/services/commercial-drain-repairs" },
-  { name: "Sewer Repair & Cleaning", href: "/services/sewer-repair-cleaning" },
-  { name: "Faucet & Leak Repairs", href: "/services/faucet-leak-repairs" },
+  { name: "More sewer", href: "/services/residential-drain-cleaning" },
+  { name: "Draining", href: "/services/residential-drain-repairs" },
+  { name: "Faucet and leak repairs", href: "/services/commercial-drain-cleaning" },
+  { name: "Clog, clog cleaning", href: "/services/commercial-drain-repairs" },
+  { name: "Drain lines", href: "/services/sewer-repair-cleaning" },
+  { name: "Toilet repairs", href: "/services/faucet-leak-repairs" },
 ];
 
 export default function Footer() {
@@ -125,7 +125,7 @@ export default function Footer() {
             <div className="space-y-2 w-full max-w-[240px]">
               {/* Schedule Online Button */}
               <Link
-                href="/contact-us"
+                href="/contact"
                 className="flex items-center justify-center w-full py-2.5 px-4 rounded-md border border-white/40 bg-white/10 hover:bg-white hover:text-[#014485] text-xs font-bold uppercase tracking-wider text-white transition-all duration-200 active:scale-95 shadow-xs"
               >
                 Schedule Online

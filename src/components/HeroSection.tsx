@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-// 4 Background Images
 const backgroundSlides = [
   "/images/3.png",
   "/images/2.png",
@@ -10,26 +9,29 @@ const backgroundSlides = [
   "/images/1.png",
 ];
 
+const highlights = [
+  {
+    label: "Available 24/7",
+    sub: "Rapid Emergency Response",
+  },
+  {
+    label: "Licensed & Insured",
+    sub: "Certified Master Plumbers",
+  },
+  {
+    label: "Upfront Pricing",
+    sub: "No Hidden Dispatch Fees",
+  },
+];
+
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Form State (Desktop only)
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    zipCode: "",
-    typeOfWork: "",
-    service: "",
-    details: "",
-  });
-
-  // Cycle through 4 background images every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % backgroundSlides.length);
     }, 5000);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -38,30 +40,20 @@ export default function HeroSection() {
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + backgroundSlides.length) % backgroundSlides.length);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form Submitted:", formData);
+    setCurrentSlide(
+      (prev) => (prev - 1 + backgroundSlides.length) % backgroundSlides.length
+    );
   };
 
   return (
-    <section className="relative min-h-[420px] sm:min-h-[480px] lg:min-h-[720px] w-full overflow-hidden py-10 sm:py-14 lg:py-20 flex items-center">
-      
-      {/* ================= 4-IMAGE BACKGROUND SLIDER ================= */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative isolate flex min-h-[380px] sm:min-h-[480px] lg:min-h-[580px] w-full items-center overflow-hidden">
+      {/* ================= BACKGROUND IMAGE SLIDER ================= */}
+      <div className="absolute inset-0 -z-20">
         {backgroundSlides.map((image, index) => (
           <div
             key={image}
-            className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out ${
-              index === currentSlide ? "opacity-100 scale-105" : "opacity-0 scale-100"
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
             style={{
               backgroundImage: `url(${image})`,
@@ -69,301 +61,154 @@ export default function HeroSection() {
           />
         ))}
 
-        {/* Ultra-low 5% tint overlay */}
-        <div className="absolute inset-0 bg-black/5" />
+        {/* Very light clean overlay to keep the photo bright */}
+        <div className="absolute inset-0 bg-black/15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-black/10 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
-          
-          {/* ================= LEFT COLUMN: HERO HEADLINE & CTA ================= */}
-          <div className="lg:col-span-7 flex flex-col items-start text-white space-y-3 sm:space-y-4 lg:space-y-5">
-            
-            {/* Round Icon Badge */}
-            <div className="flex h-11 w-11 sm:h-14 sm:w-14 lg:h-16 lg:w-16 items-center justify-center rounded-full bg-[#014485] border-2 border-white shadow-xl">
+      {/* ================= MAIN HERO CONTAINER ================= */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-8 sm:px-8 sm:py-12 lg:px-10 lg:py-16">
+        <div className="max-w-3xl text-left">
+          {/* ================= 10 YEAR AWARD BADGE ================= */}
+          <div className="mb-3 flex items-center justify-start">
+            <img
+              src="/images/batch.png"
+              alt="10 Years of Experience"
+              className="h-[132px] w-[122px] xs:h-[134px] xs:w-[134px] sm:h-[140px] sm:w-[140px] lg:h-[150px] lg:w-[150px] object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+
+          {/* ================= STATUS PILLS ROW ================= */}
+          <div className="mb-3 sm:mb-4 flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-2.5 py-1 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-white backdrop-blur-xs">
+              10 Years of Experience
+            </span>
+
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-2.5 py-1 backdrop-blur-xs">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.1em] text-white">
+                Fast 24/7 Dispatch
+              </span>
+            </div>
+          </div>
+
+          {/* ================= MAIN HEADING ================= */}
+          <h1 className="max-w-3xl text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            The Drain &amp; Sewer Experts{" "}
+            <span className="inline text-[#e24442] font-black drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+              That Put You First
+            </span>
+          </h1>
+
+          {/* ================= CTA BUTTONS ================= */}
+          <div className="mt-5 flex w-full flex-col items-stretch justify-start gap-2.5 sm:w-auto sm:flex-row sm:items-center">
+            {/* CALL BUTTON */}
+            <a
+              href="tel:2018819622"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-[#e24442] bg-[#c02f2d] hover:bg-[#a82523] px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-extrabold text-white shadow-md transition-all active:scale-[0.98]"
+            >
               <svg
-                className="h-6 w-6 sm:h-8 sm:w-8 lg:h-9 lg:w-9 text-white stroke-current fill-none stroke-2"
+                className="h-4 w-4 shrink-0"
                 viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               >
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                <path d="M4 4h4v4H4z" />
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
-            </div>
+              <span>Call (201) 881-9622</span>
+            </a>
 
-            {/* Headline */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
-              The Drain &amp; Sewer <br className="hidden sm:inline" />
-              Experts That Put You First
-            </h1>
-
-            {/* Discount Sub-headline */}
-            <p className="text-xs sm:text-base lg:text-xl font-medium text-white max-w-xl leading-relaxed drop-shadow-[0_3px_8px_rgba(0,0,0,0.9)]">
-              10% Discount For Veterans, Law Enforcement, First Responders, &amp; Seniors
-            </p>
-
-            {/* Emergency CTA Button */}
-            <div className="pt-1 sm:pt-2">
-              <a
-                href="tel:2018819622"
-                className="group relative inline-flex items-center space-x-2 sm:space-x-3 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-xl text-white font-bold text-xs sm:text-base tracking-wide shadow-2xl transition-all duration-200 hover:scale-105 active:scale-95"
-                style={{
-                  background: "linear-gradient(180deg, #d33230 0%, #9e1b19 100%)",
-                  border: "1px solid rgba(255, 255, 255, 0.4)",
-                  boxShadow: "0 8px 22px rgba(0, 0, 0, 0.6)",
-                }}
-              >
-                <div className="flex h-5 w-5 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-white/20">
-                  <svg
-                    className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-none stroke-white stroke-2"
-                    viewBox="0 0 24 24"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                  </svg>
-                </div>
-                <span>Call For 24/7 Emergency Service</span>
-              </a>
-            </div>
-
+            {/* SERVICES BUTTON */}
+            <a
+              href="#services"
+              className="inline-flex w-full sm:w-auto items-center justify-center rounded-lg border border-stone-200 bg-white hover:bg-stone-100 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-extrabold text-stone-900 shadow-md transition-all active:scale-[0.98]"
+            >
+              Explore Our Services
+            </a>
           </div>
 
-          {/* ================= RIGHT COLUMN: ESTIMATE FORM (DESKTOP ONLY) ================= */}
-          <div className="hidden lg:block lg:col-span-5 w-full">
-            <div className="relative rounded-lg bg-white shadow-2xl overflow-hidden border-t-4 border-[#c02f2d]">
-              
-              {/* Form Header */}
-              <div className="px-6 pt-5 pb-3 text-center border-b border-gray-100">
-                <h2 className="text-2xl font-bold text-[#c02f2d]">
-                  Book Now
-                </h2>
-              </div>
-
-              {/* Form Body */}
-              <form onSubmit={handleSubmit} className="p-6 space-y-3.5">
-                
-                {/* Names */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[12px] font-semibold text-gray-700 mb-1">
-                      First Name <span className="text-[#c02f2d]">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      required
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      className="w-full h-9 rounded bg-[#e8ecef] px-3 text-xs text-gray-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#014485] transition"
-                    />
+          {/* ================= TRUST HIGHLIGHTS BAR ================= */}
+          <div className="mt-5 sm:mt-7 w-full max-w-2xl border-t border-white/20 pt-3 sm:pt-4">
+            <div className="grid grid-cols-3 divide-x divide-white/20">
+              {highlights.map((item) => (
+                <div
+                  key={item.label}
+                  className="px-2 first:pl-0 text-left"
+                >
+                  <div className="text-[10px] sm:text-xs font-bold leading-tight text-white drop-shadow-sm">
+                    {item.label}
                   </div>
-
-                  <div>
-                    <label className="block text-[12px] font-semibold text-gray-700 mb-1">
-                      Last Name <span className="text-[#c02f2d]">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      required
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      className="w-full h-9 rounded bg-[#e8ecef] px-3 text-xs text-gray-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#014485] transition"
-                    />
+                  <div className="mt-0.5 text-[8px] sm:text-[11px] leading-tight text-gray-200">
+                    {item.sub}
                   </div>
                 </div>
-
-                {/* Email & Phone */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[12px] font-semibold text-gray-700 mb-1">
-                      Email <span className="text-[#c02f2d]">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full h-9 rounded bg-[#e8ecef] px-3 text-xs text-gray-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#014485] transition"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[12px] font-semibold text-gray-700 mb-1">
-                      Phone <span className="text-[#c02f2d]">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      required
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full h-9 rounded bg-[#e8ecef] px-3 text-xs text-gray-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#014485] transition"
-                    />
-                  </div>
-                </div>
-
-                {/* Zip & Work Type */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[12px] font-semibold text-gray-700 mb-1">
-                      Zip Code <span className="text-[#c02f2d]">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="zipCode"
-                      required
-                      value={formData.zipCode}
-                      onChange={handleChange}
-                      className="w-full h-9 rounded bg-[#e8ecef] px-3 text-xs text-gray-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#014485] transition"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[12px] font-semibold text-gray-700 mb-1">
-                      Type of Work <span className="text-[#c02f2d]">*</span>
-                    </label>
-                    <select
-                      name="typeOfWork"
-                      required
-                      value={formData.typeOfWork}
-                      onChange={handleChange}
-                      className="w-full h-9 rounded bg-[#e8ecef] px-2 text-xs text-gray-700 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#014485] transition"
-                    >
-                      <option value="">Select Type</option>
-                      <option value="Residential">Residential</option>
-                      <option value="Commercial">Commercial</option>
-                      <option value="Emergency">Emergency</option>
-                    </select>
-                  </div>
-                </div>
-
-                {/* Service Selection */}
-                <div>
-                  <label className="block text-[12px] font-semibold text-gray-700 mb-1">
-                    Service <span className="text-[#c02f2d]">*</span>
-                  </label>
-                  <select
-                    name="service"
-                    required
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full h-9 rounded bg-[#e8ecef] px-2 text-xs text-gray-700 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#014485] transition"
-                  >
-                    <option value="">Select Service</option>
-                    <option value="Drain Cleaning">Drain Cleaning</option>
-                    <option value="Drain Repairs">Drain Repairs</option>
-                    <option value="Sewer Repair & Cleaning">Sewer Repair & Cleaning</option>
-                    <option value="Faucet & Leak Repairs">Faucet & Leak Repairs</option>
-                  </select>
-                </div>
-
-                {/* Details */}
-                <div>
-                  <label className="block text-[12px] font-semibold text-gray-700 mb-1">
-                    Please Leave Details:
-                  </label>
-                  <textarea
-                    rows={2}
-                    name="details"
-                    value={formData.details}
-                    onChange={handleChange}
-                    className="w-full rounded bg-[#e8ecef] p-2.5 text-xs text-gray-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#014485] transition resize-none"
-                  />
-                </div>
-
-                {/* reCAPTCHA */}
-                <div className="flex items-center justify-between border border-gray-300 rounded bg-[#f9f9f9] p-2.5 max-w-[260px]">
-                  <label className="flex items-center space-x-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      required
-                      className="h-5 w-5 rounded border-gray-300 text-[#014485] focus:ring-0"
-                    />
-                    <span className="text-xs text-gray-700 font-medium select-none">
-                      I&apos;m not a robot
-                    </span>
-                  </label>
-                  <div className="flex flex-col items-center pl-2">
-                    <svg className="h-5 w-5 text-[#4285f4]" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5h-2v-2h2zm0-4h-2V7h2z" />
-                    </svg>
-                    <span className="text-[8px] text-gray-400 font-bold tracking-tighter">reCAPTCHA</span>
-                  </div>
-                </div>
-
-                {/* Submit */}
-                <div className="pt-2 flex justify-center">
-                  <button
-                    type="submit"
-                    className="w-48 py-2.5 rounded-full text-white font-bold text-sm tracking-wide shadow-md transition-all duration-200 hover:opacity-90 active:scale-95 cursor-pointer"
-                    style={{
-                      background: "linear-gradient(180deg, #c02f2d 0%, #8a1d1b 100%)",
-                    }}
-                  >
-                    Submit
-                  </button>
-                </div>
-
-              </form>
+              ))}
             </div>
           </div>
-
         </div>
       </div>
 
-      {/* ================= PAGINATION CONTROLS ================= */}
-      <div className="absolute bottom-2 sm:bottom-4 left-0 right-0 z-30 flex justify-center items-center pointer-events-none">
-        <div className="pointer-events-auto flex items-center space-x-2 sm:space-x-4 bg-black/40 backdrop-blur-md px-3.5 py-1.5 sm:px-5 sm:py-2 rounded-full border border-white/15 shadow-xl">
-          
-          {/* Previous Button */}
+      {/* ================= SLIDER CONTROLS ================= */}
+      <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-6 z-30">
+        <div className="flex items-center gap-1 rounded-full border border-white/20 bg-black/40 px-2 py-1 backdrop-blur-xs">
           <button
             onClick={prevSlide}
-            aria-label="Previous Slide"
-            className="text-white/70 hover:text-white transition focus:outline-none p-0.5 sm:p-1"
+            aria-label="Previous slide"
+            className="rounded-full p-1 text-white/70 hover:text-white"
           >
-            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+            <svg
+              className="h-3 w-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2.5"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
-          {/* Dots Indicator */}
-          <div className="flex items-center space-x-1.5 sm:space-x-2">
-            {backgroundSlides.map((_, i) => (
+          <div className="flex items-center gap-1">
+            {backgroundSlides.map((_, index) => (
               <button
-                key={i}
-                onClick={() => setCurrentSlide(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 focus:outline-none ${
-                  i === currentSlide
-                    ? "w-5 sm:w-7 bg-[#c02f2d] shadow-sm"
-                    : "w-1.5 sm:w-2 bg-white/40 hover:bg-white/75"
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  index === currentSlide
+                    ? "w-4 bg-[#c02f2d]"
+                    : "w-1.5 bg-white/50 hover:bg-white/80"
                 }`}
               />
             ))}
           </div>
 
-          {/* Next Button */}
           <button
             onClick={nextSlide}
-            aria-label="Next Slide"
-            className="text-white/70 hover:text-white transition focus:outline-none p-0.5 sm:p-1"
+            aria-label="Next slide"
+            className="rounded-full p-1 text-white/70 hover:text-white"
           >
-            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+            <svg
+              className="h-3 w-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2.5"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
-          {/* Slide Counter */}
-          <span className="text-[10px] sm:text-[11px] font-mono text-white/70 border-l border-white/20 pl-2 sm:pl-3 select-none">
-            0{currentSlide + 1} / 0{backgroundSlides.length}
+          <span className="border-l border-white/20 pl-1.5 text-[8px] font-mono text-white/60 select-none">
+            0{currentSlide + 1}/0{backgroundSlides.length}
           </span>
         </div>
       </div>
-
     </section>
   );
 }

@@ -140,7 +140,7 @@ export default function ServicesSection() {
           </span>
 
           <Link
-            href="/plumbing-services"
+            href="/services"
             className="group inline-flex items-center space-x-3 rounded-lg bg-[#014485] px-9 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-white shadow-md shadow-blue-900/15 transition-all duration-200 hover:bg-[#013568] hover:shadow-lg active:scale-95"
           >
             <span>View All Services</span>

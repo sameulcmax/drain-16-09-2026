@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import HeroSection from '@/components/HeroSection'
 import RecentWorkSection from '@/components/RecentWorkSection'
 import ReviewsSection from '@/components/ReviewsSection'
+import ServicesMarquee from '@/components/ServicesMarquee'
 import ServicesSection from '@/components/ServicesSection'
 import TopBar from '@/components/TopBar'
 import WhyChooseUsSection from '@/components/WhyChooseUsSection'
@@ -15,6 +16,7 @@ const page = () => {
     <TopBar />
     <Header />
     <HeroSection />
+    <ServicesMarquee />
     <AboutSection />
     <CoverageSection />
     <ServicesSection />
