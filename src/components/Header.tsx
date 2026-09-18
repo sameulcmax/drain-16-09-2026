@@ -60,46 +60,68 @@ export default function Header() {
     <header className="relative z-[100] w-full bg-[#c02f2d] shadow-md">
       <div className="mx-auto w-full max-w-[1920px] flex h-[70px] xs:h-[80px] sm:h-[90px] md:h-[100px] lg:h-[110px] 2xl:h-[118px] items-center justify-between pr-2 xs:pr-3 sm:pr-6 lg:pr-8">
         
-        {/* ================= 4-SIDED BLUE & RED BORDERED LOGO TAB ================= */}
-        {/* Outer Layer: Theme Blue Border (#014485) on all 4 sides */}
-        <div
-          className="relative z-20 h-full p-[3px] sm:p-[4px] bg-[#014485] shrink-0 select-none shadow-md"
-          style={{ clipPath: diagonalCut }}
-        >
-          {/* Middle Layer: Theme Red Border (#c02f2d) on all 4 sides */}
+        {/* ================= LEFT SECTION: LOGO TAB + BADGE (MOBILE TO SMALL LAPTOPS) ================= */}
+        {/* Added shrink-0 and overflow-visible so the badge never gets compressed or hidden on lg screens */}
+        <div className="flex items-center h-full shrink-0 overflow-visible">
+          {/* 4-SIDED BLUE & RED BORDERED LOGO TAB */}
           <div
-            className="h-full w-full p-[2.5px] sm:p-[3px] bg-[#c02f2d]"
+            className="relative z-20 h-full p-[3px] sm:p-[4px] bg-[#014485] shrink-0 select-none shadow-md"
             style={{ clipPath: diagonalCut }}
           >
-            {/* Inner Layer: White Logo Canvas */}
+            {/* Middle Layer: Theme Red Border */}
             <div
-              className="h-full flex items-center bg-white 
-                pl-2 xs:pl-3.5 sm:pl-6 lg:pl-8 
-                pr-7 xs:pr-8 sm:pr-10 md:pr-14 lg:pr-16"
+              className="h-full w-full p-[2.5px] sm:p-[3px] bg-[#c02f2d]"
               style={{ clipPath: diagonalCut }}
             >
-              <Link href="/" className="inline-flex items-center">
+              {/* Inner Layer: White Logo Canvas */}
+              <div
+                className="h-full flex items-center bg-white 
+                  pl-2 xs:pl-3.5 sm:pl-6 lg:pl-8 
+                  pr-7 xs:pr-8 sm:pr-10 md:pr-12 lg:pr-14"
+                style={{ clipPath: diagonalCut }}
+              >
+                <Link href="/" className="inline-flex items-center">
                 <Image
-                  src="/images/logo.png"
-                  alt="Company Logo"
-                  width={380}
-                  height={100}
-                  priority
-                  className="object-contain transition-transform duration-200 hover:scale-105
-                    w-[100px] h-[58px]
-                    xs:w-[200px] xs:h-[80px]
-                    sm:w-[210px] sm:h-[72px]
-                    md:w-[260px] md:h-[75px]
-                    lg:w-[310px] lg:h-[88px]
-                    2xl:w-[340px] 2xl:h-[95px]"
-                />
-              </Link>
+  src="/images/logo.png"
+  alt="Company Logo"
+  width={500}
+  height={160}
+  priority
+  className="object-contain max-w-none transition-transform duration-200 hover:scale-105
+    w-[150px] h-[64px]
+    xs:w-[240px] xs:h-[78px]
+    sm:w-[280px] sm:h-[86px]
+    md:w-[320px] md:h-[96px]
+    lg:w-[380px] lg:h-[105px]
+    xl:w-[420px] xl:h-[110px]
+    2xl:w-[460px] 2xl:h-[116px]"
+/>
+                </Link>
+              </div>
             </div>
+          </div>
+
+          {/* ================= ANNIVERSARY BADGE (MOBILE, TABLET & LG SMALL LAPTOPS) ================= */}
+          {/* Guaranteed display on lg (1024px–1279px) and hides on large desktops (xl ≥ 1280px) */}
+          <div className="flex xl:hidden items-center ml-2 xs:ml-3 sm:ml-4 lg:ml-6 shrink-0 z-20">
+           <Image
+  src="/images/badge.png"
+  alt="Anniversary Badge"
+  width={160}
+  height={160}
+  priority
+  className="object-contain drop-shadow-md transition-transform duration-200 hover:scale-105
+    w-[56px] h-[56px]
+    xs:w-[64px] xs:h-[64px]
+    sm:w-[76px] sm:h-[76px]
+    md:w-[90px] md:h-[90px]
+    lg:w-[130px] lg:h-[130px]"
+/>
           </div>
         </div>
 
         {/* ================= DESKTOP NAVIGATION LINKS (CENTERED IN RED AREA) ================= */}
-        <nav className="hidden xl:flex flex-1 items-center justify-center gap-6 2xl:gap-10 px-6 min-w-0">
+        <nav className="hidden xl:flex flex-1 items-center justify-center gap-6 2xl:gap-10 px-4 2xl:px-8 min-w-0">
           {navLinks.map((item) => {
             const isActive =
               item.href === "/"
@@ -222,7 +244,36 @@ export default function Header() {
           })}
         </nav>
 
-        {/* ================= HEADER CONTROLS (Tablets & Mobile) ================= */}
+        {/* ================= RIGHT SECTION (LARGE LAPTOPS & DESKTOPS ≥ xl) ================= */}
+        <div className="hidden xl:flex items-center space-x-5 2xl:space-x-6 shrink-0 z-20">
+          <Image
+            src="/images/badge.png"
+            alt="Anniversary Badge"
+            width={95}
+            height={95}
+            priority
+            className="object-contain drop-shadow-lg transition-transform duration-200 hover:scale-105
+              w-[75px] h-[75px]
+              2xl:w-[86px] 2xl:h-[86px]"
+          />
+
+          <a
+            href="tel:2018819622"
+            className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-full bg-white text-[#c02f2d] font-bold text-xs uppercase tracking-wider shadow-md hover:bg-gray-100 transition active:scale-95"
+          >
+            <svg
+              className="h-4 w-4 fill-none stroke-current stroke-2"
+              viewBox="0 0 24 24"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <span>(201) 881-9622</span>
+          </a>
+        </div>
+
+        {/* ================= HEADER CONTROLS (Tablets, Mobile & lg screens) ================= */}
         <div className="flex items-center space-x-1.5 xs:space-x-2 sm:space-x-3.5 xl:hidden z-20 shrink-0">
           <a
             href="tel:2018819622"
