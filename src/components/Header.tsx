@@ -61,16 +61,15 @@ export default function Header() {
       <div className="mx-auto w-full max-w-[1920px] flex h-[70px] xs:h-[80px] sm:h-[90px] md:h-[100px] lg:h-[110px] 2xl:h-[118px] items-center justify-between pr-2 xs:pr-3 sm:pr-6 lg:pr-8">
         
         {/* ================= LEFT SECTION: LOGO TAB + BADGE (MOBILE TO SMALL LAPTOPS) ================= */}
-        {/* Added shrink-0 and overflow-visible so the badge never gets compressed or hidden on lg screens */}
         <div className="flex items-center h-full shrink-0 overflow-visible">
-          {/* 4-SIDED BLUE & RED BORDERED LOGO TAB */}
+          {/* 4-SIDED RED & BLUE BORDERED LOGO TAB (SWAPPED COLORS) */}
           <div
-            className="relative z-20 h-full p-[3px] sm:p-[4px] bg-[#014485] shrink-0 select-none shadow-md"
+            className="relative z-20 h-full p-[3px] sm:p-[4px] bg-[#c02f2d] shrink-0 select-none shadow-md"
             style={{ clipPath: diagonalCut }}
           >
-            {/* Middle Layer: Theme Red Border */}
+            {/* Middle Layer: Theme Blue Border */}
             <div
-              className="h-full w-full p-[2.5px] sm:p-[3px] bg-[#c02f2d]"
+              className="h-full w-full p-[2.5px] sm:p-[3px] bg-[#014485]"
               style={{ clipPath: diagonalCut }}
             >
               {/* Inner Layer: White Logo Canvas */}
@@ -101,21 +100,20 @@ export default function Header() {
           </div>
 
           {/* ================= ANNIVERSARY BADGE (MOBILE, TABLET & LG SMALL LAPTOPS) ================= */}
-          {/* Guaranteed display on lg (1024px–1279px) and hides on large desktops (xl ≥ 1280px) */}
           <div className="flex xl:hidden items-center ml-2 xs:ml-3 sm:ml-4 lg:ml-6 shrink-0 z-20">
-           <Image
-  src="/images/bad.png"
-  alt="Anniversary Badge"
-  width={160}
-  height={160}
-  priority
-  className="object-contain drop-shadow-md transition-transform duration-200 hover:scale-105
-    w-[56px] h-[56px]
-    xs:w-[64px] xs:h-[64px]
-    sm:w-[76px] sm:h-[76px]
-    md:w-[90px] md:h-[90px]
-    lg:w-[130px] lg:h-[130px]"
-/>
+            <Image
+              src="/images/bad.png"
+              alt="Anniversary Badge"
+              width={160}
+              height={160}
+              priority
+              className="object-contain drop-shadow-md transition-transform duration-200 hover:scale-105
+                w-[56px] h-[56px]
+                xs:w-[64px] xs:h-[64px]
+                sm:w-[76px] sm:h-[76px]
+                md:w-[90px] md:h-[90px]
+                lg:w-[110px] lg:h-[110px]"
+            />
           </div>
         </div>
 
@@ -246,7 +244,7 @@ export default function Header() {
         {/* ================= RIGHT SECTION (LARGE LAPTOPS & DESKTOPS ≥ xl) ================= */}
         <div className="hidden xl:flex items-center space-x-5 2xl:space-x-6 shrink-0 z-20">
           <Image
-            src="/images/badge.png"
+            src="/images/bad.png"
             alt="Anniversary Badge"
             width={95}
             height={95}
