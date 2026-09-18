@@ -3,10 +3,10 @@
 import React, { useEffect, useState } from "react";
 
 const backgroundSlides = [
-  "/images/3.png",
-  "/images/2.png",
-  "/images/4.png",
   "/images/1.png",
+  "/images/2.png",
+  "/images/3.png",
+  "/images/4.png",
 ];
 
 const highlights = [
@@ -79,21 +79,6 @@ export default function HeroSection() {
           </div>
 
           {/* ================= STATUS PILLS ROW ================= */}
-          <div className="mb-3 sm:mb-4 flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center rounded-full border border-white/30 bg-black/30 px-2.5 py-1 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-white backdrop-blur-xs">
-              10 Years of Experience
-            </span>
-
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-black/30 px-2.5 py-1 backdrop-blur-xs">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              </span>
-              <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.1em] text-white">
-                Fast 24/7 Dispatch
-              </span>
-            </div>
-          </div>
 
           {/* ================= MAIN HEADING ================= */}
           <h1 className="max-w-3xl text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
@@ -124,32 +109,6 @@ export default function HeroSection() {
               <span>Call (201) 881-9622</span>
             </a>
 
-            {/* SERVICES BUTTON */}
-            <a
-              href="#services"
-              className="inline-flex w-full sm:w-auto items-center justify-center rounded-lg border border-stone-200 bg-white hover:bg-stone-100 px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-extrabold text-stone-900 shadow-md transition-all active:scale-[0.98]"
-            >
-              Explore Our Services
-            </a>
-          </div>
-
-          {/* ================= TRUST HIGHLIGHTS BAR ================= */}
-          <div className="mt-5 sm:mt-7 w-full max-w-2xl border-t border-white/20 pt-3 sm:pt-4">
-            <div className="grid grid-cols-3 divide-x divide-white/20">
-              {highlights.map((item) => (
-                <div
-                  key={item.label}
-                  className="px-2 first:pl-0 text-left"
-                >
-                  <div className="text-[10px] sm:text-xs font-bold leading-tight text-white drop-shadow-sm">
-                    {item.label}
-                  </div>
-                  <div className="mt-0.5 text-[8px] sm:text-[11px] leading-tight text-gray-200">
-                    {item.sub}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
