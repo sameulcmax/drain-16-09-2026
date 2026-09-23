@@ -28,7 +28,7 @@ export default function HeroSection() {
           
           {/* ================= MAIN HEADING ================= */}
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.85)]">
-            The Drain &amp; Sewer Experts{" "}
+            The Sewer &amp; Drain Experts{" "}
             <span className="block sm:inline text-[#e24442] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               That Put You First
             </span>
