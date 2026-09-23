@@ -9,7 +9,7 @@ export default function HeroSection() {
       {/* ================= BACKGROUND STATIC IMAGE ================= */}
       <div className="absolute inset-0 -z-20 h-full w-full">
         <Image
-          src="/images/1.jpg"
+          src="/images/1.png"
           alt="Hero Background"
           fill
           priority
