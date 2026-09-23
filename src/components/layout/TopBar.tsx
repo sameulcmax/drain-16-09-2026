@@ -1,18 +1,44 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function TopBar() {
+  const [dateTime, setDateTime] = useState<string>("");
+
+  useEffect(() => {
+    // Function to update local time and date based on user's device settings
+    const updateDateTime = () => {
+      const now = new Date();
+      
+      const options: Intl.DateTimeFormatOptions = {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      };
+
+      setDateTime(new Intl.DateTimeFormat(undefined, options).format(now));
+    };
+
+    updateDateTime();
+    const timer = setInterval(updateDateTime, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="w-full bg-[#014485] text-white border-b border-white/10 select-none">
       <div className="w-full px-4 sm:px-6 lg:px-10 h-12 grid grid-cols-2 sm:grid-cols-3 items-center">
         
-        {/* LEFT SECTION: Flush to the far-left start */}
-        <div className="flex items-center justify-start space-x-4 lg:space-x-7">
-          {/* Location Pin & Serving Area */}
-          <div className="flex items-center space-x-2 font-medium text-[15px] text-white whitespace-nowrap">
+        {/* LEFT SECTION: Digital Timing, Location & 5-Star Rating */}
+        <div className="flex items-center space-x-3 lg:space-x-5 overflow-hidden">
+          {/* Live Local Date & Time */}
+          <div className="flex items-center space-x-1.5 font-medium text-[12px] sm:text-[13px] text-white/90 whitespace-nowrap">
             <svg
-              className="w-5 h-5 text-white shrink-0"
+              className="w-4 h-4 text-white shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -21,35 +47,30 @@ export default function TopBar() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <span>Serving New Jersey</span>
+            <span suppressHydrationWarning>{dateTime || "Loading time..."}</span>
           </div>
 
           {/* 5-Star Rating */}
-          <div className="hidden lg:flex items-center space-x-2 whitespace-nowrap">
-            <div className="flex text-amber-400 space-x-1">
+          <div className="hidden xl:flex items-center space-x-1.5 whitespace-nowrap border-l border-white/20 pl-4">
+            <div className="flex text-amber-400 space-x-0.5">
               {[...Array(5)].map((_, i) => (
                 <svg
                   key={i}
-                  className="w-4 h-4 fill-current drop-shadow-sm"
+                  className="w-3.5 h-3.5 fill-current drop-shadow-sm"
                   viewBox="0 0 20 20"
                 >
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               ))}
             </div>
-            <span className="text-[14px] text-white/90 font-medium">(5.0 Star Rated)</span>
+            <span className="text-[13px] text-white/90 font-medium">(5.0 Star Rated)</span>
           </div>
         </div>
 
-        {/* MIDDLE SECTION: Locked dead center */}
+        {/* MIDDLE SECTION: Locked dead center (Social Media Icons) */}
         <div className="hidden sm:flex items-center justify-center space-x-3">
           {/* Facebook */}
           <a

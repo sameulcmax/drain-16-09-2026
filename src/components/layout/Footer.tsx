@@ -23,8 +23,8 @@ const serviceLinks = [
   { name: "Sewer", href: "/our-services/residential-drain-cleaning" },
   { name: "Draining", href: "/our-services/residential-drain-repairs" },
   { name: "Faucet and leak repairs", href: "/our-services/commercial-drain-cleaning" },
-  { name: "Clog, clog cleaning", href: "/our-services/commercial-drain-repairs" },
-  { name: "Drain lines", href: "/our-services/sewer-repair-cleaning" },
+  { name: "Clogged Drains", href: "/our-services/commercial-drain-repairs" },
+  { name: " ", href: "/our-services/sewer-repair-cleaning" },
   { name: "Toilet repairs", href: "/our-services/faucet-leak-repairs" },
 ];
 

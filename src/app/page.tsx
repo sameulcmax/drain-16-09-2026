@@ -9,6 +9,7 @@ import ServicesMarquee from "@/components/home-page/ServicesMarquee"
 import ServicesSection from "@/components/home-page/ServicesSection"
 import TopBar from "@/components/layout/TopBar"
 import WhyChooseUsSection from "@/components/home-page/WhyChooseUsSection"
+import WhatToExpectSection from "@/components/home-page/WhatToExpectSection"
 
 const page = () => {
   return (
@@ -17,6 +18,7 @@ const page = () => {
     <Header />
     <HeroSection />
     <ServicesMarquee />
+    <WhatToExpectSection />
     <AboutSection />
     <CoverageSection />
     <ServicesSection />

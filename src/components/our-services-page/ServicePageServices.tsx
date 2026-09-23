@@ -18,9 +18,9 @@ const allServicesData: ServiceItem[] = [
   {
     id: "residential-drain-cleaning",
     tag: "Residential Solutions",
-    title: "Residential Drain Cleaning",
+    title: "RESIDENTIAL DRAIN CLEANING",
     description:
-      "We specialise in providing top-notch residential drain cleaning services to ensure your home plumbing system runs smoothly and efficiently. Our skilled professionals use advanced techniques and heavy-duty power snaking equipment to tackle even the most stubborn household drain clogs and blockages.",
+      "Keeping the drains in your home clean and spotless is vital to preventing serious plumbing problems such as burst pipes, overflowing sinks and toilets and foul odors from permeating your home. The easiest and most effective way to prevent problems and ensure your drains are running smoothly is with professional residential drain cleaning services.\n\nAt DRAIN SOLUTIONS PLUS, we help homeowners overcome their drain issues with a series of comprehensive, safe and efficient drain cleaning services.\n\nTop notch drain cleaning specialists. We unclog 99.9% of the drains we work on. We have a variety of snake cable sizes, different machines and methods to unclogging your drains.",
     image: "/images/residential-drain-clean.jpg",
     ctaText: "Drain Cleaning",
     ctaLink: "/our-services/residential-drain-cleaning",
@@ -28,9 +28,9 @@ const allServicesData: ServiceItem[] = [
   {
     id: "residential-drain-repairs",
     tag: "Home Piping Restorations",
-    title: "Residential Drain Repairs",
+    title: "RESIDENTIAL DRAIN REPAIRS",
     description:
-      "From cracked under-sink branch lines to misaligned bathroom drain pipes, our team delivers precise, long-lasting residential repairs. We eliminate slow drainage, persistent sewer smells, and recurring backups with minimal disruption to your home.",
+      "Drain and sewer problems are a headache for any homeowner. Not only do they cause issues with your home, but they also disrupt your routine and potentially threaten the safety of your family. When you need residential sewer line repairs or drain repairs, it’s important to call an expert you can trust to get the job done right.\n\nAt DRAIN SOLUTIONS PLUS, we provide expert solutions for all your drain repair needs. We specialize in video inspecting sewer lines with our state of the art camera technology. We have the knowledge and experience in locating where your problem is and coming up with a variety of solutions so you won’t have to experience a sewer problem again.\n\nVideo inspecting sewer line to the street to get a visual of the condition of your main line. Highly recommended to new homeowners or if you’re shopping for a house.",
     image: "/images/residential-drain-repair.jpg",
     ctaText: "Drain Repairs",
     ctaLink: "/our-services/residential-drain-repairs",
@@ -38,9 +38,9 @@ const allServicesData: ServiceItem[] = [
   {
     id: "commercial-drain-repairs",
     tag: "Commercial & Industrial",
-    title: "Commercial Drain Repairs",
+    title: "COMMERCIAL DRAIN REPAIRS",
     description:
-      "High-volume grease traps, restaurant interceptors, and industrial sewer stacks require certified heavy-duty care. We provide trenchless pipe relining, structural reinforcement, and rapid emergency repairs tailored specifically for commercial property managers across New Jersey.",
+      "Experiencing a drain problem on your commercial property causes serious headaches for business owners. Not only do drain problems pose serious safety and health risks, but they can also lead to loss of business and income if part of your building needs to be shut down during the repair.",
     image: "/images/commercial-drain-repair.jpg",
     ctaText: "Commercial Repairs",
     ctaLink: "/our-services/commercial-drain-repairs",
@@ -48,9 +48,9 @@ const allServicesData: ServiceItem[] = [
   {
     id: "commercial-drain-cleaning",
     tag: "Heavy-Duty Jetting",
-    title: "Commercial Drain Cleaning",
+    title: "COMMERCIAL DRAIN CLEANING",
     description:
-      "Engineered for municipal buildings, food service kitchens, and industrial complexes. Our specialized high-pressure hydro-jetting rigs strip hardened grease, scale, and heavy debris from commercial pipelines to maintain full compliance and continuous flow.",
+      "Keeping the drains clean in your commercial property is vital to the successful operation of your business. Without clean drains, your business will suffer and you will notice increased problems in your commercial building. At DRAIN SOLUTIONS PLUS, we work with business owners to provide guaranteed drain solutions.",
     image: "/images/commercial-drain-clean.jpg",
     ctaText: "Commercial Cleaning",
     ctaLink: "/our-services/commercial-drain-cleaning",
@@ -58,9 +58,9 @@ const allServicesData: ServiceItem[] = [
   {
     id: "faucet-leak-repairs",
     tag: "Fixture & Leak Care",
-    title: "Faucet & Leak Repairs",
+    title: "FAUCET & LEAK REPAIRS",
     description:
-      "Hidden water leaks and leaking valves damage subfloors and spike utility bills. Our technicians identify subterranean and in-wall pipe bursts quickly, repairing or replacing worn fixtures, valves, and water supply lines with clean precision.",
+      "At times you realise that you still have the same problem happening to your sink faucet situation over and over again. Now that’s really frustrating and you just can’t live with this. We at Drain Solutions Plus do the best to repair the faucet.\n\nIf you any more plumbing problems , we are there to help you.",
     image: "/images/leak-repair.jpg",
     ctaText: "Leak Repairs",
     ctaLink: "/our-services/faucet-leak-repairs",
@@ -70,7 +70,7 @@ const allServicesData: ServiceItem[] = [
     tag: "HD Video Diagnostics",
     title: "Main Line Video Sewer Inspection",
     description:
-      "Take the guesswork out of subterranean pipeline issues. Our fiber-optic high-definition sewer cameras travel deep into your main line to locate root intrusions, collapsed channels, and severe blockages with pinpoint depth accuracy.",
+      "We use specialised camera to deduct why your pipes are clogged and provide the solution to the problem. We inspect all the issues of the clog and other others issues using the best commercial grade equipment. We value your property and to save time and money, our company makes it a point to resolve the issue in best possible manner.",
     image: "/images/sewer-inspection.jpg",
     ctaText: "Schedule Inspection",
     ctaLink: "/our-services/sewer-repair-cleaning",
@@ -145,7 +145,7 @@ export default function ServicePageServices() {
                     {service.title}
                   </h3>
 
-                  <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-stone-600 font-normal">
+                  <p className="text-[14.5px] sm:text-[15px] leading-relaxed text-stone-600 font-normal whitespace-pre-line">
                     {service.description}
                   </p>
 

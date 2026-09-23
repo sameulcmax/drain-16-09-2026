@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 
@@ -23,6 +25,7 @@ export default function HeroSection() {
       {/* ================= MAIN HERO CONTAINER (FLUSH LEFT) ================= */}
       <div className="relative z-10 w-full px-5 py-12 sm:px-10 sm:py-16 md:px-14 lg:px-20 xl:px-24">
         <div className="max-w-4xl text-left">
+          
           {/* ================= MAIN HEADING ================= */}
           <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.85)]">
             The Drain &amp; Sewer Experts{" "}
@@ -31,8 +34,21 @@ export default function HeroSection() {
             </span>
           </h1>
 
+          {/* ================= REDUCED PADDING & INCREASED IMAGE WIDTH ================= */}
+          <div className="mt-6 inline-block rounded-lg overflow-hidden shadow-lg bg-white border border-stone-200">
+            <div className="relative h-12 sm:h-14 px-1 py-1 flex items-center justify-center">
+              <Image
+                src="/images/five-stars.png"
+                alt="5 Star Google Reviews"
+                width={260}
+                height={55}
+                className="h-full w-auto object-contain object-center"
+              />
+            </div>
+          </div>
+
           {/* ================= CTA BUTTON ================= */}
-          <div className="mt-8 flex w-full flex-col items-stretch justify-start sm:w-auto sm:flex-row sm:items-center">
+          <div className="mt-5 flex w-full flex-col items-stretch justify-start sm:w-auto sm:flex-row sm:items-center">
             <a
               href="tel:2018819622"
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2.5 rounded-lg border border-[#e24442] bg-[#c02f2d] hover:bg-[#a82523] px-7 py-3.5 sm:px-9 sm:py-4 text-sm sm:text-base font-bold text-white shadow-lg transition-all active:scale-[0.98]"
@@ -51,6 +67,7 @@ export default function HeroSection() {
               <span>Call (201) 881-9622</span>
             </a>
           </div>
+
         </div>
       </div>
     </section>

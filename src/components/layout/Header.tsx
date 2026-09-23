@@ -34,8 +34,9 @@ const navLinks: NavItem[] = [
   { name: "Services", href: "/our-services" },
   { name: "Residential", href: "/our-services/residential-drain-cleaning", hasDropdown: true },
   { name: "Commercial", href: "/our-services/commercial-drain-cleaning", hasDropdown: true },
-  { name: "Project Gallery", href: "/successful-drain-sewer-projects-north-nj" },
-  { name: "Schedule Online", href: "/schedule-online" },
+  { name: "Projects", href: "/successful-drain-sewer-projects-north-nj" },
+  { name: "Contact", href: "/schedule-online" },
+  { name: "Reviews", href: "/" },
 ];
 
 export default function Header() {
@@ -216,7 +217,7 @@ export default function Header() {
 
           <a
             href="tel:2018819622"
-            className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-full bg-white text-[#c02f2d] font-bold text-xs uppercase tracking-wider shadow-md hover:bg-gray-100 transition active:scale-95"
+            className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-full bg-yellow-300 text-[#c02f2d] font-bold text-xs uppercase tracking-wider shadow-sm hover:bg-white transition active:scale-95"
           >
             <svg
               className="h-4 w-4 fill-none stroke-current stroke-2"
@@ -226,7 +227,7 @@ export default function Header() {
             >
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
-            <span>(201) 881-9622</span>
+            <span>Call Now</span>
           </a>
         </div>
 
@@ -234,17 +235,18 @@ export default function Header() {
         <div className="flex items-center space-x-1.5 xs:space-x-2 sm:space-x-3.5 xl:hidden z-20 shrink-0">
           <a
             href="tel:2018819622"
-            className="flex items-center justify-center w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white/15 text-white hover:bg-white/25 transition active:scale-95"
-            aria-label="Call Us"
+            className="flex items-center space-x-1 px-2.5 py-1.5 xs:px-3 xs:py-2 rounded-full bg-yellow-300 text-[#c02f2d] font-bold text-[10px] xs:text-xs uppercase tracking-wider shadow-sm hover:bg-white transition active:scale-95 whitespace-nowrap"
+            aria-label="Call Now"
           >
             <svg
-              className="h-4 w-4 xs:h-5 xs:w-5 fill-none stroke-current stroke-2"
+              className="h-3.5 w-3.5 xs:h-4 xs:w-4 fill-none stroke-current stroke-2"
               viewBox="0 0 24 24"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
+            <span>Call Now</span>
           </a>
 
           <Link
@@ -387,15 +389,15 @@ export default function Header() {
           </ul>
         </div>
 
-        <div className="p-4 sm:p-5 border-t border-red-800/60 shrink-0 bg-[#a62523]">
+        <div className="p-4 sm:p-5 border-t border-red-800/60 shrink-0 bg-yellow-50/5">
           <a
             href="tel:2018819622"
-            className="flex items-center justify-center space-x-2 w-full py-2.5 bg-white text-[#c02f2d] font-bold rounded shadow hover:bg-gray-100 transition text-sm"
+            className="flex items-center justify-center space-x-2 w-full py-2.5 bg-gray-100/90 text-[#c02f2d] font-bold rounded shadow hover:bg-white transition text-sm uppercase"
           >
             <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
-            <span>Call (201) 881-9622</span>
+            <span>Call Now</span>
           </a>
         </div>
       </div>
