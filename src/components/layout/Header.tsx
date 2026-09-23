@@ -99,7 +99,7 @@ export default function Header() {
 
           <div className="flex xl:hidden items-center ml-2 xs:ml-3 sm:ml-4 lg:ml-6 shrink-0 z-20">
             <Image
-              src="/images/bad.png"
+              src="/images/badgee.png"
               alt="Anniversary Badge"
               width={160}
               height={160}
@@ -205,13 +205,13 @@ export default function Header() {
         {/* ================= RIGHT SECTION ================= */}
         <div className="hidden xl:flex items-center space-x-5 2xl:space-x-6 shrink-0 z-20">
           <Image
-            src="/images/bad.png"
+            src="/images/badgee.png"
             alt="Anniversary Badge"
             width={95}
             height={95}
             priority
             className="object-contain drop-shadow-lg transition-transform duration-200 hover:scale-105
-              w-[75px] h-[75px]
+              w-[85px] h-[75px]
               2xl:w-[86px] 2xl:h-[86px]"
           />
 
