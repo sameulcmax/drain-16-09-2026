@@ -21,7 +21,7 @@ const servicesData: ServiceItem[] = [
     title: "RESIDENTIAL DRAIN CLEANING",
     description:
       "Keeping the drains in your home clean and spotless is vital to preventing serious plumbing problems such as burst pipes, overflowing sinks and toilets and foul odors from permeating your home. The easiest and most effective way to prevent problems and ensure your drains are running smoothly is with professional residential drain cleaning services.\n\nAt DRAIN SOLUTIONS PLUS, we help homeowners overcome their drain issues with a series of comprehensive, safe and efficient drain cleaning services.\n\nTop notch drain cleaning specialists. We unclog 99.9% of the drains we work on. We have a variety of snake cable sizes, different machines and methods to unclogging your drains.",
-    image: "/images/residential-drain-clean.jpg",
+    image: "/images/client-images/sink-line-cleared.jpg",
     ctaText: "Drain Cleaning",
     ctaLink: "/services/residential-drain-cleaning",
   },
@@ -31,7 +31,7 @@ const servicesData: ServiceItem[] = [
     title: "RESIDENTIAL DRAIN REPAIRS",
     description:
       "Drain and sewer problems are a headache for any homeowner. Not only do they cause issues with your home, but they also disrupt your routine and potentially threaten the safety of your family. When you need residential sewer line repairs or drain repairs, it’s important to call an expert you can trust to get the job done right.\n\nAt DRAIN SOLUTIONS PLUS, we provide expert solutions for all your drain repair needs. We specialize in video inspecting sewer lines with our state of the art camera technology. We have the knowledge and experience in locating where your problem is and coming up with a variety of solutions so you won’t have to experience a sewer problem again.\n\nVideo inspecting sewer line to the street to get a visual of the condition of your main line. Highly recommended to new homeowners or if you’re shopping for a house.",
-    image: "/images/residential-drain-repair.jpg",
+    image: "/images/client-images/kitchen-cleaning.jpg",
     ctaText: "Drain Repairs",
     ctaLink: "/services/residential-drain-repairs",
   },
@@ -41,7 +41,7 @@ const servicesData: ServiceItem[] = [
     title: "COMMERCIAL DRAIN REPAIRS",
     description:
       "Experiencing a drain problem on your commercial property causes serious headaches for business owners. Not only do drain problems pose serious safety and health risks, but they can also lead to loss of business and income if part of your building needs to be shut down during the repair.",
-    image: "/images/commercial-drain-repair.jpg",
+    image: "/images/client-images/iron-sewer-replaced-with-pvc1.jpeg",
     ctaText: "Commercial Repairs",
     ctaLink: "/services/commercial-drain-repairs",
   },
@@ -140,7 +140,7 @@ export default function ServicesSection() {
           </span>
 
           <Link
-            href="/services"
+            href="/our-services"
             className="group inline-flex items-center space-x-3 rounded-lg bg-[#014485] px-9 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-white shadow-md shadow-blue-900/15 transition-all duration-200 hover:bg-[#013568] hover:shadow-lg active:scale-95"
           >
             <span>View All Services</span>

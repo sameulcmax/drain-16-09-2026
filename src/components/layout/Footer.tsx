@@ -21,7 +21,7 @@ const companyLinks = [
 
 const serviceLinks = [
   { name: "Sewer", href: "/our-services/residential-drain-cleaning" },
-  { name: "Draining", href: "/our-services/residential-drain-repairs" },
+  { name: "Drains", href: "/our-services/residential-drain-repairs" },
   { name: "Faucet and leak repairs", href: "/our-services/commercial-drain-cleaning" },
   { name: "Clogged Drains", href: "/our-services/commercial-drain-repairs" },
   { name: " ", href: "/our-services/sewer-repair-cleaning" },

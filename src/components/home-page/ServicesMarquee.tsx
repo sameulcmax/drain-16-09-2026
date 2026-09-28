@@ -4,7 +4,7 @@ import React from "react";
 
 const services = [
   "Sewer",
-  "Draining",
+  "Drains",
   "Faucet and leak repairs",
   "Clogged Drains",
   "Toilet repairs",
