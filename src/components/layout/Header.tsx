@@ -11,19 +11,50 @@ interface NavItem {
   hasDropdown?: boolean;
 }
 
-const serviceGroups = [
+interface ServiceMenuItem {
+  name: string;
+  href: string;
+  desc?: string;
+}
+
+interface ServiceGroup {
+  title: string;
+  items: ServiceMenuItem[];
+}
+
+const serviceGroups: ServiceGroup[] = [
+  {
+    title: "Services",
+    items: [
+      { name: "Residential Drain Cleaning", href: "/our-services/residential-drain-cleaning" },
+      { name: "Residential Drain Repairs", href: "/our-services/residential-drain-repairs" },
+      { name: "Commercial Drain Repairs", href: "/our-services/commercial-drain-repairs" },
+      { name: "Commercial Drain Cleaning", href: "/our-services/commercial-drain-cleaning" },
+      { name: "Faucet & Leak Repairs", href: "/our-services/faucet-leak-repairs" },
+      { name: "Sewer and Drain Cleaning", href: "/our-services/sewer-and-drain-cleaning" },
+      { name: "Toilet Clogs", href: "/our-services/toilet-clogs" },
+      { name: "Tub Clogs", href: "/our-services/tub-clogs" },
+      { name: "Sink Clogs", href: "/our-services/sink-clogs" },
+      { name: "Sewer and Drain Repairs", href: "/our-services/sewer-and-drain-repairs" },
+      { name: "Sewer and Drain Video Inspections", href: "/our-services/sewer-and-drain-video-inspections" },
+      { name: "Hydro Jetting", href: "/our-services/hydro-jetting" },
+      { name: "Flush Valve Leak Repairs", href: "/our-services/flush-valve-leak-repairs" },
+      { name: "Sump Pump Repairs or Replacement", href: "/our-services/sump-pump-repairs-or-replacement" },
+      { name: "Sewage Ejector Pump Repairs or Replacement", href: "/our-services/sewage-ejector-pumps-repairs-or-replacement" },
+    ],
+  },
   {
     title: "Residential",
     items: [
-      { name: "Residential Drain", desc: "Top-notch household drain cleaning", href: "/our-services/residential-drain-cleaning" },
-      { name: "Residential Sewer", desc: "Precise home piping restorations", href: "/our-services/residential-drain-repairs" },
+      { name: "Residential Drain", desc: "Top-notch household drain cleaning", href: "/residential-drain-service" },
+      { name: "Residential Sewer", desc: "Precise home piping restorations", href: "/residential-sewer-service" },
     ],
   },
   {
     title: "Commercial",
     items: [
-      { name: "Commercial Drain", desc: "Heavy-duty commercial cleaning", href: "/our-services/commercial-drain-cleaning" },
-      { name: "Commercial Sewer", desc: "Industrial and commercial repairs", href: "/our-services/commercial-drain-repairs" },
+      { name: "Commercial Drain", desc: "Heavy-duty commercial cleaning", href: "/commercial-drain-service" },
+      { name: "Commercial Sewer", desc: "Industrial and commercial repairs", href: "/commercial-sewer-service" },
     ],
   },
 ];
@@ -31,12 +62,12 @@ const serviceGroups = [
 const navLinks: NavItem[] = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about-us" },
-  { name: "Services", href: "/our-services" },
-  { name: "Residential", href: "/our-services/residential-drain-cleaning", hasDropdown: true },
-  { name: "Commercial", href: "/our-services/commercial-drain-cleaning", hasDropdown: true },
+  { name: "Services", href: "/our-services", hasDropdown: true },
+  { name: "Residential", href: "/", hasDropdown: true },
+  { name: "Commercial", href: "/commercial-drain-and-sewer", hasDropdown: true },
   { name: "Projects", href: "/successful-drain-sewer-projects-north-nj" },
-  { name: "Contact", href: "/schedule-online" },
-  { name: "Reviews", href: "/" },
+  { name: "Contact", href: "/contact" },
+  { name: "Reviews", href: "/reviews" },
 ];
 
 export default function Header() {
@@ -154,26 +185,28 @@ export default function Header() {
 
                   {/* Dropdown Menu with hover bridge */}
                   <div className="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block pt-2 z-[120]">
-                    <div className="w-[280px] rounded-xl bg-[#a82422] border border-white/20 py-3 px-2 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]">
+                    <div className={`${item.name === "Services" ? "w-[min(760px,calc(100vw-2rem))]" : "w-[320px]"} max-h-[70vh] max-w-[calc(100vw-2rem)] overflow-y-auto rounded-xl bg-[#a82422] border border-white/20 py-3 px-2 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)]`}>
                       {matchedGroup && (
-                        <div className="space-y-1">
+                        <div className={item.name === "Services" ? "grid grid-cols-3 gap-1" : "space-y-1"}>
                           {matchedGroup.items.map((svc) => (
                             <Link
                               key={svc.name}
                               href={svc.href}
-                              className="group/item block rounded-lg px-3 py-2.5 transition-all duration-150 hover:bg-white/10"
+                              className={`group/item block rounded-lg transition-all duration-150 hover:bg-white/10 ${item.name === "Services" ? "px-2 py-3" : "px-3 py-2.5"}`}
                             >
                               <div className="flex items-center justify-between">
-                                <span className="text-xs font-bold uppercase tracking-wide text-white group-hover/item:text-amber-300 transition-colors">
+                                <span className="min-w-0 flex-1 break-words text-xs font-bold uppercase tracking-wide text-white group-hover/item:text-amber-300 transition-colors">
                                   {svc.name}
                                 </span>
-                                <span className="text-xs text-white/50 group-hover/item:text-white transition-transform">
+                                <span className="ml-1 shrink-0 text-xs text-white/50 group-hover/item:text-white transition-transform">
                                   →
                                 </span>
                               </div>
-                              <p className="text-[10.5px] text-white/70 transition-colors line-clamp-1 mt-0.5">
-                                {svc.desc}
-                              </p>
+                              {svc.desc && (
+                                <p className="text-[10.5px] text-white/70 transition-colors line-clamp-1 mt-0.5">
+                                  {svc.desc}
+                                </p>
+                              )}
                             </Link>
                           ))}
                         </div>

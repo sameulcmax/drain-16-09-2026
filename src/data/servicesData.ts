@@ -344,7 +344,7 @@ export const allServicesData: ServiceItem[] = [
       "Reliable sump pump repair and installation to keep your basement dry during heavy storms.",
     longDescription:
       "A failing sump pump can leave your basement vulnerable to severe flooding and water damage during heavy rainfall. We provide prompt diagnostics, motor repairs, and full sump pump replacements including backup battery systems to keep your property protected year-round.",
-    image: "/images/client-images/sump-pump.png",
+    image: "/images/client-images/sump-pump.jpeg",
     ctaText: "Sump Pump Services",
     ctaLink: "/our-services/sump-pump-repairs-or-replacement",
     bulletPoints: [
@@ -364,7 +364,7 @@ export const allServicesData: ServiceItem[] = [
       "Professional service for below-grade sewage ejector pumps handling basement bathrooms and laundry.",
     longDescription:
       "Basement bathrooms, laundry rooms, and wet bars rely on sewage ejector pumps to lift wastewater up to the main sewer line. If your ejector pump fails, it can cause severe backups. We offer fast repair, maintenance, and heavy-duty replacement services.",
-    image: "/images/client-images/ejector.png",
+    image: "/images/client-images/ejector.jpeg",
     ctaText: "Ejector Pump Services",
     ctaLink: "/our-services/sewage-ejector-pumps-repairs-or-replacement",
     bulletPoints: [
