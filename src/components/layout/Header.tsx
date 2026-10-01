@@ -33,7 +33,7 @@ const serviceGroups: ServiceGroup[] = [
       { name: "Faucet & Leak Repairs", href: "/our-services/faucet-leak-repairs" },
       { name: "Sewer and Drain Cleaning", href: "/our-services/sewer-and-drain-cleaning" },
       { name: "Toilet Clogs", href: "/our-services/toilet-clogs" },
-      { name: "Tub Clogs", href: "/our-services/tub-clogs" },
+      { name: "Residential Tub Clogs", href: "/our-services/tub-clogs" },
       { name: "Sink Clogs", href: "/our-services/sink-clogs" },
       { name: "Sewer and Drain Repairs", href: "/our-services/sewer-and-drain-repairs" },
       { name: "Sewer and Drain Video Inspections", href: "/our-services/sewer-and-drain-video-inspections" },
@@ -90,7 +90,7 @@ export default function Header() {
 
   return (
     <header className="relative z-[100] w-full bg-[#c02f2d] shadow-md">
-      <div className="mx-auto w-full max-w-[1920px] flex h-[70px] xs:h-[80px] sm:h-[90px] md:h-[100px] lg:h-[110px] 2xl:h-[118px] items-center justify-between pr-2 xs:pr-3 sm:pr-6 lg:pr-8">
+      <div className="mx-auto w-full max-w-[1920px] flex h-[70px] max-[389px]:h-16 xs:h-[80px] sm:h-[90px] md:h-[100px] lg:h-[110px] 2xl:h-[118px] items-center justify-between pr-2 xs:pr-3 sm:pr-6 lg:pr-8">
         
         {/* ================= LEFT SECTION: LOGO TAB + BADGE ================= */}
         <div className="flex items-center h-full shrink-0 overflow-visible">
@@ -117,6 +117,7 @@ export default function Header() {
                     priority
                     className="object-contain transition-transform duration-200 hover:scale-105
                       w-[100px] h-[58px]
+                      max-[389px]:w-[90px] max-[389px]:h-[50px]
                       xs:w-[200px] xs:h-[80px]
                       sm:w-[210px] sm:h-[72px]
                       md:w-[240px] md:h-[75px]
@@ -128,9 +129,9 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="flex xl:hidden items-center ml-2 xs:ml-3 sm:ml-4 lg:ml-6 shrink-0 z-20">
+          <div className="flex xl:hidden items-center ml-2 xs:ml-3 sm:ml-4 lg:ml-6 shrink-0 z-20 max-[389px]:hidden">
             <Image
-              src="/images/badgee.png"
+              src="/images/batch.png"
               alt="Anniversary Badge"
               width={160}
               height={160}
@@ -162,7 +163,7 @@ export default function Header() {
                 <div key={item.name} className="relative group py-6 shrink-0">
                   <Link
                     href={item.href}
-                    className={`flex items-center text-[12px] 2xl:text-[13.5px] font-semibold uppercase tracking-wider text-white whitespace-nowrap transition-all hover:text-white/80 ${
+                    className={`flex items-center text-[13px] 2xl:text-[14.5px] uppercase tracking-wider text-white whitespace-nowrap transition-all hover:text-white/80 ${
                       isActive ? "text-white" : "text-white/95"
                     }`}
                   >
@@ -195,7 +196,7 @@ export default function Header() {
                               className={`group/item block rounded-lg transition-all duration-150 hover:bg-white/10 ${item.name === "Services" ? "px-2 py-3" : "px-3 py-2.5"}`}
                             >
                               <div className="flex items-center justify-between">
-                                <span className="min-w-0 flex-1 break-words text-xs font-bold uppercase tracking-wide text-white group-hover/item:text-amber-300 transition-colors">
+                                <span className="min-w-0 flex-1 break-words text-xs uppercase tracking-wide text-white group-hover/item:text-amber-300 transition-colors">
                                   {svc.name}
                                 </span>
                                 <span className="ml-1 shrink-0 text-xs text-white/50 group-hover/item:text-white transition-transform">
@@ -221,7 +222,7 @@ export default function Header() {
               <div key={item.name} className="relative py-6 shrink-0">
                 <Link
                   href={item.href}
-                  className={`text-[12px] 2xl:text-[13.5px] font-semibold uppercase tracking-wider whitespace-nowrap transition-all hover:text-white/80 ${
+                  className={`text-[13px] 2xl:text-[14.5px] uppercase tracking-wider whitespace-nowrap transition-all hover:text-white/80 ${
                     isActive ? "text-white" : "text-white/95"
                   }`}
                 >
@@ -238,7 +239,7 @@ export default function Header() {
         {/* ================= RIGHT SECTION ================= */}
         <div className="hidden xl:flex items-center space-x-5 2xl:space-x-6 shrink-0 z-20">
           <Image
-            src="/images/badgee.png"
+            src="/images/batch.png"
             alt="Anniversary Badge"
             width={95}
             height={95}
@@ -265,10 +266,10 @@ export default function Header() {
         </div>
 
         {/* ================= HEADER CONTROLS (Mobile & Tablets) ================= */}
-        <div className="flex items-center space-x-1.5 xs:space-x-2 sm:space-x-3.5 xl:hidden z-20 shrink-0">
+        <div className="flex items-center space-x-1.5 max-[389px]:space-x-1 xs:space-x-2 sm:space-x-3.5 xl:hidden z-20 shrink-0">
           <a
             href="tel:2018819622"
-            className="flex items-center space-x-1 px-2.5 py-1.5 xs:px-3 xs:py-2 rounded-full bg-yellow-300 text-[#c02f2d] font-bold text-[10px] xs:text-xs uppercase tracking-wider shadow-sm hover:bg-white transition active:scale-95 whitespace-nowrap"
+            className="flex items-center space-x-1 px-2.5 py-1.5 max-[389px]:h-10 max-[389px]:w-10 max-[389px]:justify-center max-[389px]:p-0 xs:px-3 xs:py-2 rounded-full bg-yellow-300 text-[#c02f2d] font-bold text-[10px] xs:text-xs uppercase tracking-wider shadow-sm hover:bg-white transition active:scale-95 whitespace-nowrap"
             aria-label="Call Now"
           >
             <svg
@@ -279,12 +280,12 @@ export default function Header() {
             >
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
             </svg>
-            <span>Call Now</span>
+            <span className="max-[389px]:hidden">Call Now</span>
           </a>
 
           <Link
             href="/"
-            className="flex items-center justify-center w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white/15 text-white hover:bg-white/25 transition active:scale-95"
+            className="flex items-center justify-center w-8 h-8 max-[389px]:hidden xs:w-9 xs:h-9 sm:w-10 sm:h-10 rounded-full bg-white/15 text-white hover:bg-white/25 transition active:scale-95"
             aria-label="Home"
           >
             <svg
@@ -300,7 +301,7 @@ export default function Header() {
           <button
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open Navigation"
-            className="flex items-center justify-center w-8 h-8 xs:w-9 xs:h-9 sm:w-10 sm:h-10 text-white focus:outline-none hover:bg-white/10 rounded-full transition"
+            className="flex items-center justify-center w-8 h-8 max-[389px]:w-10 max-[389px]:h-10 xs:w-9 xs:h-9 sm:w-10 sm:h-10 text-white focus:outline-none hover:bg-white/10 rounded-full transition"
           >
             <svg
               className="h-6 w-6 sm:h-7 sm:w-7 stroke-current stroke-2"

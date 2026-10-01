@@ -91,7 +91,7 @@ export default function CoverageSection() {
           <div className="flex justify-center lg:justify-end lg:col-span-5 w-full">
             <div className="relative w-full max-w-[420px] flex items-center justify-center">
               <Image
-                src="/images/nj.png"
+                src="/images/njj.png"
                 alt="Northern New Jersey Service Area Map"
                 width={500}
                 height={700}

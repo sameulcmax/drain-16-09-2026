@@ -10,6 +10,7 @@ const services = [
   "Toilet repairs",
   "Main line video sewer inspection",
   "Residential drain repairs and cleaning",
+  "Hydro Jetting",
 ];
 
 export default function ServicesMarquee() {
@@ -26,7 +27,7 @@ export default function ServicesMarquee() {
           <div key={setIndex} className="flex shrink-0 items-center gap-6 sm:gap-10 pr-6 sm:pr-10">
             {services.map((item, index) => (
               <div key={`${setIndex}-${index}`} className="flex items-center gap-6 sm:gap-10">
-                <span className="text-xs sm:text-sm lg:text-base font-extrabold uppercase tracking-wider text-white whitespace-nowrap drop-shadow-sm">
+                <span className="text-xs sm:text-sm lg:text-base uppercase tracking-wider text-white whitespace-nowrap drop-shadow-sm">
                   {item}
                 </span>
 

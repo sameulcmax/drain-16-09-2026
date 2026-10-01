@@ -12,10 +12,10 @@ const servicedLocations = [
 ];
 
 const companyLinks = [
-  { name: "Blog", href: "/blog" },
   { name: "About Us", href: "/about-us" },
-  { name: "Our Projects", href: "/project-gallery" },
   { name: "Services", href: "/our-services" },
+  { name: "Our Projects", href: "/project-gallery" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 

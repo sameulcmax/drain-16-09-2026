@@ -71,7 +71,7 @@ export default function TopBar() {
         </div>
 
         {/* MIDDLE SECTION: Locked dead center (Social Media Icons) */}
-        <div className="hidden sm:flex items-center justify-center space-x-3">
+        <div className="flex items-center justify-end space-x-3 sm:justify-center">
           {/* Facebook */}
           <a
             href="https://facebook.com"
@@ -113,7 +113,7 @@ export default function TopBar() {
         </div>
 
         {/* RIGHT SECTION: Flush to the far-right end */}
-        <div className="flex items-center justify-end">
+        <div className="hidden items-center justify-end sm:flex">
           <a
             href="tel:2018819622"
             className="flex items-center space-x-2 text-[15px] font-bold text-white hover:text-red-300 transition whitespace-nowrap"
